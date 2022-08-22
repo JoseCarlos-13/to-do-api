@@ -7,6 +7,7 @@ ruby '3.1.2'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 gem 'net-smtp', '~> 0.3.1'
 gem 'pg', '~> 1.4', '>= 1.4.3'
+gem 'active_model_serializers', '~> 0.10.13'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
