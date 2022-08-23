@@ -6,7 +6,6 @@ RSpec.describe "Tasks", type: :request do
     context "when have much task created" do
       let(:tasks) { create_list(:task, 3) }
 
-
       before do
         tasks
 

@@ -1,0 +1,18 @@
+name:
+on:
+jobs:
+  rspec:
+    name: Rspec
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:example@localhost:3000/db_test
+    services:
+      postgres:
+        image: postgres:1.4
+        ports: ['3000:3000']
+        env:
+          # POSTGRES_DB: db_test
+          # POSTGRES_USER: postgres
+          # POSTGRES_PASSWORD: example
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
