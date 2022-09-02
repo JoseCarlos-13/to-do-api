@@ -11,6 +11,9 @@ default: &default
 
 development:
   <<: *default
+  host: 5000
+  username: postgres
+  password: postgres
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
