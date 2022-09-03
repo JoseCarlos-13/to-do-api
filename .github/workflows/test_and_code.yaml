@@ -2,14 +2,14 @@ name: CI
 on: push
 jobs:
   rspec:
-    name: Rspec
+    name: Rspec-automatizado
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:example@localhost:3000/db_test
     services:
       postgres:
         image: postgres:1.4
-        ports: ['3000:3000']
+        ports: ['5434:5434']
         env:
           POSTGRES_DB: db/development.sqlite3
           POSTGRES_USER: postgres
