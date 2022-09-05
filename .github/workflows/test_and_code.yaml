@@ -1,8 +1,5 @@
 name: test_and_code
-on: 
-  push: 
-    branches: 
-      - staging
+on: push
 jobs:
   rspec:
     name: Rspec-Automatizado
