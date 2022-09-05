@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu:22.04.1
     env:
       RAILS_ENV: test
-      DATABASE_URL: postgres://postgres:example@localhost:3000/db_test
+      DATABASE_URL: postgres://postgres:postgres@localhost:3000/db_test
     services:
       postgres:
         image: postgres:1.4
