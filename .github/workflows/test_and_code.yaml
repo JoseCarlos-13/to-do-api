@@ -3,13 +3,13 @@ on: push
 jobs:
   rspec:
     name: Rspec-Automatizado
-    runs-on: ubuntu:22.04.1
+    runs-on: ubuntu-20.04
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:postgres@localhost:3000/db_test
     services:
       postgres:
-        image: postgres:1.4
+        image: postgres:latest
         ports: ['5434:5434']
         env:
           POSTGRES_DB: db/development.sqlite3
