@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       RAILS_ENV: test
-      DATABASE_URL: postgres://postgres:postgres@localhost:5434/db_test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/db_test
     services:
       postgres:
         image: postgres:latest
-        ports: ['5434:5434']
+        ports: ['5432:5432']
         env:
           POSTGRES_DB: db/development.sqlite3
           POSTGRES_USER: postgres
