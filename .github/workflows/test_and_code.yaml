@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   rspec:
-    name: Rspec-automatizado
+    name: Rspec-Automatizado
     runs-on: push
     env:
       RAILS_ENV: test
