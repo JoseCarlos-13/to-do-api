@@ -1,9 +1,11 @@
 name: CI
-on: push
+on: 
+  push: 
+    branches: - staging
 jobs:
   rspec:
     name: Rspec-Automatizado
-    runs-on: push
+    runs-on: ubuntu:22.04
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:example@localhost:3000/db_test
