@@ -2,8 +2,8 @@ name: test_and_code
 on: push
 jobs:
   rubocop:
-  name: Rubocop
-  runs-on: ubuntu-latest
+  name: Rubocop-automatizado
+  runs-on: ubuntu-20.04
   steps:
     - name: Checkout code
       uses: actions/checkout@v1
