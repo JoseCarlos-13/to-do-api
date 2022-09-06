@@ -2,7 +2,7 @@ name: test_and_code
 on: push
 jobs:
   rubocop:
-  name: Rubocop-automatizado
+  name: Rubocop
   runs-on: ubuntu-20.04
   steps:
     - name: Checkout code
@@ -18,7 +18,7 @@ jobs:
       run: bundle exec rubocop
 
   rspec:
-    name: Rspec-Automatizado
+    name: Rspec
     runs-on: ubuntu-20.04
     env:
       RAILS_ENV: test
