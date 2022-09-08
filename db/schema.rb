@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_08_18_183111) do
 
-  create_table "tasks", force: :cascade do |t|
-    t.integer "status"
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'tasks', force: :cascade do |t|
+    t.integer 'status'
+    t.string 'title'
+    t.string 'description'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
 end
