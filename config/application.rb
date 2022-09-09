@@ -22,7 +22,8 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 module ToDoApi
-# config/application.rb
+
+  # config/application.rb
 
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
