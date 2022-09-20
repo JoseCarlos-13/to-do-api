@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class Foo
-  class Bar
-    class Tasks::Index::TasksSerializer < ActiveModel::Serializer
+class Tasks
+  class Index
+    class TasksSerializer < ActiveModel::Serializer
       attributes :id, :title, :status
     end
   end
