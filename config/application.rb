@@ -23,6 +23,7 @@ Bundler.require(*Rails.groups)
 # config/application.rb
 
 module ToDoApi
+  # config/application.rb
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
