@@ -65,7 +65,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  Shoulda::Matchers.configure do
+  Shoulda::Matchers.configure do |config|
     config do |with|
       with.test_framework :rspec
       with.library :rails
