@@ -69,6 +69,6 @@ RSpec.configure do |config|
     config do |with|
       with.test_framework :rspec
       with.library :rails
-    end if config
+    end
   end
 end
