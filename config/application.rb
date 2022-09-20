@@ -22,7 +22,6 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 module ToDoApi
-
   # config/application.rb
 
   class Application < Rails::Application
