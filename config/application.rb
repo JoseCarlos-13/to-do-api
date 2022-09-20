@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# config/application.rb
 
 require_relative 'boot'
 
@@ -22,8 +23,6 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 module ToDoApi
-  # config/application.rb
-
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
