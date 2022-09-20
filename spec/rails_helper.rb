@@ -70,6 +70,6 @@ RSpec.configure do |config|
     var do |with|
       with.test_framework :rspec
       with.library :rails
-    end
+    end if var
   end
 end
