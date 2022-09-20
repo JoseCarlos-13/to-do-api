@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# config/application.rb
 
 require_relative 'boot'
 
@@ -21,6 +20,7 @@ require 'rails/test_unit/railtie'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+# config/application.rb
 
 module ToDoApi
   class Application < Rails::Application
