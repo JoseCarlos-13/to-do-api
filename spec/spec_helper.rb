@@ -55,7 +55,7 @@ RSpec.configure do |config|
 # aliases for `it`, `describe`, and `context` that include `:focus`
 # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
 # config.filter_run_when_matching :focus
-=begin
+# begin
 # Allows RSpec to persist some state between runs in order to support
 # the `--only-failures` and `--next-failure` CLI options. We recommend
 # you configure your source control system to ignore this file.
@@ -92,5 +92,5 @@ RSpec.configure do |config|
 # test failures related to randomization by passing the same `--seed` value
 # as the one that triggered the failure.
 # Kernel.srand config.seed
-=end
+# end
 end
