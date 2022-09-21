@@ -48,8 +48,8 @@ RSpec.configure do |config|
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-# rubocop:disable:next_block
-=begin
+
+=begin # rubocop:disable BlockComments
   # This allows you to limit a spec run to individual examples or groups
   # you care about by tagging them with `:focus` metadata. When nothing
   # is tagged with `:focus`, all examples get run. RSpec also provides
