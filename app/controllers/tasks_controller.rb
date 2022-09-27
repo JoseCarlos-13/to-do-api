@@ -2,8 +2,11 @@
 
 # app/controllers/tasks_controller.rb
 class TasksController < ApplicationController
+  # after_action { pagy_headers_merge(@pagy) if @pagy }
+
   def index
-    tasks = Task.all
+    pagy, tasks = pagy(Task.all, page: params[:page], items: params[:items])
+
 
     render json: tasks,
            each_serializer: Tasks::Index::TasksSerializer,
