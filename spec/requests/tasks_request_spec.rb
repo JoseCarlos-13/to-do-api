@@ -36,4 +36,37 @@ RSpec.describe 'Tasks', type: :request do
       end
     end
   end
+
+  describe 'POST#create' do
+    context 'when create a task to the list' do
+      let(:task_attributes) { attributes_for(:task) }
+
+      before do
+        task_attributes
+
+        post '/tasks', params: { task: task_attributes }
+      end
+
+      it 'when the task is created' do
+        expect(response).to have_http_status(:created)
+        expect(json_body).to include(:id, :status, :description, :title)
+      end
+    end
+
+    context 'when create a task with blank values' do
+      let(:task_attributes) { attributes_for(:task, status: nil,
+                                                    description: nil,
+                                                    title: nil) }
+
+      before do
+        task_attributes
+
+        post '/tasks', params: { task: task_attributes }
+      end
+
+      it 'when the task is not created' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
 end

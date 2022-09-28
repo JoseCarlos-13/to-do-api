@@ -8,7 +8,23 @@ class TasksController < ApplicationController
     @pagy, tasks = pagy(Task.all, page: params[:page], items: params[:items])
 
     render json: tasks,
-           each_serializer: Tasks::Index::TasksSerializer,
-           status: :ok
+           each_serializer: Tasks::Index::TasksSerializer, status: :ok
+  end
+
+  def create
+    task = Task.new(task_params)
+
+    if task.save
+      render json: task,
+             serializer: Tasks::Create::TasksSerializer, status: :created
+    else
+      render json: { errors: task.errors }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:status, :description, :title)
   end
 end
