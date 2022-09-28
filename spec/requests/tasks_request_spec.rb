@@ -21,5 +21,19 @@ RSpec.describe 'Tasks', type: :request do
         expect(json_body[0]).to have_key(:status)
       end
     end
+
+    context 'when have pagination included' do
+      let(:tasks) { create_list(:task, 6) }
+
+      before do
+        tasks
+
+        get '/tasks', params: { page: 1, items: 2 }
+      end
+
+      it 'return the response body count' do
+        expect(json_body.count).to eq(2)
+      end
+    end
   end
 end
