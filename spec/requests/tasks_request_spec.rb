@@ -66,6 +66,7 @@ RSpec.describe 'Tasks', type: :request do
 
       it 'when the task is not created' do
         expect(response).to have_http_status(:unprocessable_entity)
+        expect(json_body).to include(:errors)
       end
     end
   end
