@@ -6,7 +6,6 @@ class TasksController < ApplicationController
 
   def index
     @pagy, tasks = pagy(Task.all, page: params[:page], items: params[:items])
-    pagy_headers_merge(@pagy)
 
     render json: tasks,
            each_serializer: Tasks::Index::TasksSerializer,
