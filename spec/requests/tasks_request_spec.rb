@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'support/request_helper_spec'
 
-RSpec.describe 'Tasks', type: :request do
+RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
   describe 'GET#index' do
     context 'when have much task created' do
       let(:tasks) { create_list(:task, 3) }
@@ -54,9 +54,10 @@ RSpec.describe 'Tasks', type: :request do
     end
 
     context 'when create a task with blank values' do
-      let(:task_attributes) { attributes_for(:task, status: nil,
-                                                    description: nil,
-                                                    title: nil) }
+      let(:task_attributes) {
+                              attributes_for(:task, status: nil, title: nil,
+                                                    description: nil)
+                            }
 
       before do
         task_attributes
