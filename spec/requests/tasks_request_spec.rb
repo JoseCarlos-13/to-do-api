@@ -58,9 +58,11 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
 
     context 'when create a task with blank values' do
       let(:user) { create(:user) }
-      let(:task_attributes) { attributes_for(:task, status: nil, title: nil,
+      let(:task_attributes) {
+                              attributes_for(:task, status: nil, title: nil,
                                                     description: nil,
-                                                    user_id: user.id) }
+                                                    user_id: user.id)
+                            }
 
       before do
         task_attributes
