@@ -39,7 +39,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe 'POST#create' do # rubocop:disable Metrics/BlockLength
+  describe 'POST#create' do
     context 'when create a task to the list' do
       let(:user) { create(:user) }
       let(:task_attributes) { attributes_for(:task, user_id: user.id) }
