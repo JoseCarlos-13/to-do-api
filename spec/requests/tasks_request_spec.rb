@@ -14,7 +14,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         get '/tasks'
       end
 
-      it 'return response status code and the tasks created' do
+      it 'must return the 200 status code and the tasks created' do
         expect(response).to have_http_status(:ok)
         expect(json_body[0]).to have_key(:id)
         expect(json_body[0]).to have_key(:title)
@@ -31,7 +31,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         get '/tasks', params: { page: 1, items: 2 }
       end
 
-      it 'return the response body count' do
+      it 'must return the response body count' do
         expect(json_body.count).to eq(2)
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         post '/tasks', params: { task: task_attributes }
       end
 
-      it 'when the task is created' do
+      it 'must return the 201 status code and the task attributes' do
         expect(response).to have_http_status(:created)
         expect(json_body).to include(:id, :status, :description, :title)
       end
@@ -62,7 +62,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         post '/tasks', params: { task: task_attributes }
       end
 
-      it 'when the task is not created' do
+      it 'must return the 422 status code and message errors' do
         expect(response).to have_http_status(:unprocessable_entity)
         expect(json_body).to include(:errors)
       end
