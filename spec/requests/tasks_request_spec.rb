@@ -39,7 +39,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe 'POST#create' do
+  describe 'POST#create' do # rubocop:disable Metrics/BlockLength
     context 'when create a task to the list' do
       let(:user) { create(:user) }
       let(:task_attributes) { attributes_for(:task, user_id: user.id) }
@@ -58,11 +58,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
 
     context 'when create a task with blank values' do
       let(:user) { create(:user) }
-      let(:task_attributes) {
-                              attributes_for(:task, status: nil, title: nil,
-                                                    description: nil,
-                                                    user_id: user.id)
-                            }
+      let(:task_attributes) { attributes_for(:task, status: nil, title: nil, description: nil, user_id: user.id) }
 
       before do
         task_attributes
