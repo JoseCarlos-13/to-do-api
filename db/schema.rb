@@ -13,7 +13,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20_221_001_212_652) do
-
   create_table 'tasks', force: :cascade do |t|
     t.integer 'status'
     t.string 'title'
