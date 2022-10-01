@@ -3,17 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  context 'validations' do
-    it { is_expected.to validate_presence_of(:title) }
-    it { is_expected.to validate_presence_of(:description) }
-  end
+  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:description) }
 
-  context 'enums' do
-    it { is_expected.to define_enum_for(:status) }
-    it { is_expected.to define_enum_for(:status).with_values(to_do: 0, in_development: 1, done: 2) }
-  end
+  it { is_expected.to define_enum_for(:status) }
+  it { is_expected.to define_enum_for(:status).with_values(to_do: 0, in_development: 1, done: 2) }
 
-  context 'associations' do
-    it { is_expected.to belong_to(:user) }
-  end
+  it { is_expected.to belong_to(:user) }
 end
