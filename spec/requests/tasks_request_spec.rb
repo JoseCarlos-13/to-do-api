@@ -6,7 +6,8 @@ require 'support/request_helper_spec'
 RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
   describe 'GET#index' do
     context 'when have much task created' do
-      let(:tasks) { create_list(:task, 3) }
+      let(:user) { create(:user) }
+      let(:tasks) { create_list(:task, 3, user_id: user.id) }
 
       before do
         tasks
@@ -23,7 +24,8 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
     end
 
     context 'when have pagination included' do
-      let(:tasks) { create_list(:task, 6) }
+      let(:user) { create(:user) }
+      let(:tasks) { create_list(:task, 6, user_id: user.id) }
 
       before do
         tasks
@@ -39,7 +41,8 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
 
   describe 'POST#create' do
     context 'when create a task to the list' do
-      let(:task_attributes) { attributes_for(:task) }
+      let(:user) { create(:user) }
+      let(:task_attributes) { attributes_for(:task, user_id: user.id) }
 
       before do
         task_attributes
@@ -54,7 +57,8 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
     end
 
     context 'when create a task with blank values' do
-      let(:task_attributes) { attributes_for(:task, status: nil, title: nil, description: nil) }
+      let(:user) { create(:user) }
+      let(:task_attributes) { attributes_for(:task, status: nil, title: nil, description: nil, user_id: user.id) }
 
       before do
         task_attributes
