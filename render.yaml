@@ -1,18 +1,18 @@
 databases:
-  - name: to-do-api
+  - name: todoapi
     databaseName: postgres
     user: postgres
 
 services:
   - type: web
-    name: to-do-api
+    name: todoapi
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: to-do-api
+          name: todoapi
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
