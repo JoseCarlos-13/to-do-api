@@ -1,7 +1,7 @@
 databases:
   - name: to-do-api
-    databaseName: to-do-api
-    user: to-do-api
+    databaseName: postgres
+    user: postgres
 
 services:
   - type: web
