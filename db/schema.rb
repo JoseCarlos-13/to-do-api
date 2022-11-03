@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_001_212_652) do
+ActiveRecord::Schema.define(version: 202_211_020_032_08) do
   create_table 'tasks', force: :cascade do |t|
     t.integer 'status'
     t.string 'title'
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20_221_001_212_652) do
     t.string 'name'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'status', default: 0
   end
 
   add_foreign_key 'tasks', 'users'

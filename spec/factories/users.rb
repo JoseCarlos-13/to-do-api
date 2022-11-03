@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :user do
-    sequence(:name) { |n| "MyString#{n}" }
+    sequence(:name) { |m| "MyString#{m}" }
   end
 end
