@@ -6,7 +6,7 @@
   def call
     if @user.tasks.where(status: 'in_development').count == 0
       update_user_status_if_not_have_tasks_in_development(@user)
-    else
+    elsif user.tasks.where(status: 'in_development').count != 0
       update_tasks_and_user_status_if_have_tasks_in_development(@user)
     end
   end
@@ -19,10 +19,8 @@
   end
 
   def update_tasks_and_user_status_if_have_tasks_in_development(user)
-    # if user.tasks.where(status: 'in_development').count != 0
     user.update(status: "inactive") &&
     user.tasks.each{|task| task.update(status: "cancelled")}
-    # end
   end
 end
 
