@@ -14,7 +14,7 @@ gem 'pagy', '~> 5.10', '>= 5.10.1'
 gem 'pg', '~> 1.4', '>= 1.4.3'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
-# gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '~> 1.4'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
