@@ -10,7 +10,7 @@ RSpec.describe Task, type: :model do
 
   context 'enums' do
     it { is_expected.to define_enum_for(:status) }
-    it { is_expected.to define_enum_for(:status).with_values(to_do: 0, in_development: 1, done: 2) }
+    it { is_expected.to define_enum_for(:status).with_values(to_do: 0, in_development: 1, done: 2, cancelled: 3) }
   end
 
   context 'associations' do
