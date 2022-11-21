@@ -7,4 +7,8 @@ class Task < ApplicationRecord
   validates :description, presence: true
 
   enum status: { to_do: 0, in_development: 1, done: 2, cancelled: 3 }
+
+  scope :filter_by_status, -> (status) { 
+    where('status like ?', "%#{status}%") if status.present?
+  }
 end

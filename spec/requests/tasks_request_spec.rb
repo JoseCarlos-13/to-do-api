@@ -37,6 +37,24 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         expect(json_body.count).to eq(2)
       end
     end
+
+    context 'when have a filter for status' do
+      let(:user) { create(:user) }
+      let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
+      let(:tasks2) { create_list(:task, 2, user_id: user.id, status: 'to_do') }
+
+      before do
+        tasks1
+        tasks2
+
+        get '/tasks', params: { status: 3 }
+      end
+
+      it 'must return the cancelled tasks' do
+        expect(json_body[0][:status]).to eq('cancelled')
+        expect(json_body[1][:status]).to eq('cancelled')
+      end
+    end
   end
 
   describe 'POST#create' do
