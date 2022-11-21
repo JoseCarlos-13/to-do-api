@@ -4,10 +4,18 @@
 class TasksController < ApplicationController
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
-  def index
-    @pagy, tasks = pagy(Task.all.includes(:user), page: params[:page], items: params[:items])
-    tasks = tasks.filter_by_status(params[:status])
-    
+  def index # rubocop:disable Metrics/BlockLength
+    if params[:status]
+      task_list = Task.all.includes(:user).filter_by_status(params[:status])
+    else
+      task_list = Task.all.includes(:user)
+    end
+
+    @pagy, tasks = pagy(
+      task_list,
+      page: params[:page], items: params[:items]
+    )
+
     render json: tasks,
            each_serializer: Tasks::Index::TasksSerializer, status: :ok
   end

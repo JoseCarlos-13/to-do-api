@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'support/request_helper_spec'
 
 RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
-  describe 'GET#index' do
+  describe 'GET#index' do # rubocop:disable Metrics/BlockLength
     context 'when have much task created' do
       let(:user) { create(:user) }
       let(:tasks) { create_list(:task, 3, user_id: user.id) }
@@ -38,7 +38,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
       end
     end
 
-    context 'when have a filter for status' do
+    context 'when have a filter for status applied' do
       let(:user) { create(:user) }
       let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
       let(:tasks2) { create_list(:task, 2, user_id: user.id, status: 'to_do') }
@@ -47,7 +47,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
         tasks1
         tasks2
 
-        get '/tasks', params: { status: 3 }
+        get '/tasks', params: { status: 'cancelled' }
       end
 
       it 'must return the cancelled tasks' do

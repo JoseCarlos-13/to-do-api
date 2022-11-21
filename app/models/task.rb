@@ -8,7 +8,5 @@ class Task < ApplicationRecord
 
   enum status: { to_do: 0, in_development: 1, done: 2, cancelled: 3 }
 
-  scope :filter_by_status, -> (status) { 
-    where('status like ?', "%#{status}%") if status.present?
-  }
+  scope :filter_by_status, ->(status_params) { where(status: statuses[status_params]) }
 end
