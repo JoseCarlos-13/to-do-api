@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'support/request_helper_spec'
 
 RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
-  describe 'GET#index' do
+  describe 'GET#index' do # rubocop:disable Metrics/BlockLength
     context 'when have much task created' do
       let(:user) { create(:user) }
       let(:tasks) { create_list(:task, 3, user_id: user.id) }
@@ -35,6 +35,24 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
 
       it 'must return the response body count' do
         expect(json_body.count).to eq(2)
+      end
+    end
+
+    context 'when have a filter for status applied' do
+      let(:user) { create(:user) }
+      let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
+      let(:tasks2) { create_list(:task, 2, user_id: user.id, status: 'to_do') }
+
+      before do
+        tasks1
+        tasks2
+
+        get '/tasks', params: { status: 'cancelled' }
+      end
+
+      it 'must return the cancelled tasks' do
+        expect(json_body[0][:status]).to eq('cancelled')
+        expect(json_body[1][:status]).to eq('cancelled')
       end
     end
   end
