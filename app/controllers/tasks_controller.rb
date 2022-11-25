@@ -5,8 +5,12 @@ class TasksController < ApplicationController
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   def index # rubocop:disable Metrics/BlockLength
-    if params[:status] && params[:title]
-      task_list = Task.all.includes(:user).filter_by_status(params[:status], params[:title])
+    if params[:status].present?
+      task_list = Task.all.includes(:user).filter_by_status(params[:status])
+    elsif params[:title].present?
+      task_list = Task.all.includes(:user).filter_by_title(params[:title])
+    elsif params[:user_name].present?
+      task_list = Task.all.includes(:user).filter_by_user_name(params[:user_name])
     else
       task_list = Task.all.includes(:user)
     end
