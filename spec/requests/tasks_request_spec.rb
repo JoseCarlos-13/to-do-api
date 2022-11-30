@@ -96,6 +96,48 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
           expect(json_body[1][:title]).to eq('title2')
         end
       end
+
+      context 'by multiple params applied' do
+        let(:user) { create(:user) }
+        let(:task1) { create(:task, title: 'title1', user_id: user.id, status: 'cancelled') }
+        let(:task2) { create(:task, title: 'title2', user_id: user.id, status: 'done') }
+        let(:task3) { create(:task, title: 'title3', user_id: user.id, status: 'done') }
+        let(:task4) { create(:task, title: 'title4', user_id: user.id, status: 'done') }
+
+        before do
+          task1
+          task2
+          task3
+          task4
+  
+          get '/tasks', params: { status: 'done', title: 'le3'}
+        end
+  
+        it 'must return the tasks through the title' do
+          expect(json_body[0][:title]).to eq('title3')
+        end
+      end
+  
+      context 'by user_name applied' do
+        let(:user) { create(:user, name: 'MyString1') }
+        let(:user2) { create(:user, name: 'MyString2') }
+        let(:task1) { create(:task, title: 'title1', user_id: user.id, status: 'cancelled') }
+        let(:task2) { create(:task, title: 'title2', user_id: user.id, status: 'to_do') }
+        let(:task3) { create(:task, title: 'title3', user_id: user2.id, status: 'to_do') }
+  
+        before do
+          task1
+          task2
+          task3
+  
+          get '/tasks', params: { user_name: 'MyString1' }
+        end
+  
+        it 'must return the tasks through the title' do
+          expect(json_body[0][:title]).to eq('title1')
+          expect(json_body[1][:title]).to eq('title2')
+        end
+      end
     end
   end
 
