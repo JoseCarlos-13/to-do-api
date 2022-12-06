@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
+# task_filter_query
 class TaskFilterQuery
-  def initialize(task_list, params)
-    @task_list = task_list
+  def initialize(params)
     @params = params
   end
 
   def filter_by_status
-    @task_list.where(status: Task.statuses[@params])
+    Task.where(status: Task.statuses[@params])
   end
 
   def filter_by_title
-    @task_list.where('title like ?', "%#{@params}%")
+    Task.where('title like ?', "%#{@params}%")
   end
 
   def filter_by_user_name
-    @task_list.joins(:user).where("name like ?", "%#{@params}%")
+    Task.joins(:user).where('name like ?', "%#{@params}%")
   end
 end
