@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/request_helper_spec'
 
 RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
   describe 'GET#index' do # rubocop:disable Metrics/BlockLength

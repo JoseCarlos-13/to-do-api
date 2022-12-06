@@ -6,10 +6,9 @@ class TasksController < ApplicationController
 
   def index # rubocop:disable Metrics/BlockLength
     if params[:status].present? || params[:title].present? || params[:user_name].present?
-      task_list = Task
-      task_list = TaskFilterQuery.new(params[:status]).filter_by_status if params[:status].present?
-      task_list = TaskFilterQuery.new(params[:title]).filter_by_title if params[:title].present?
-      task_list = TaskFilterQuery.new(params[:user_name]).filter_by_user_name if params[:user_name].present?
+      task_list = TasksQuery.new(params[:status]).by_status if params[:status].present?
+      task_list = TasksQuery.new(params[:title]).by_title if params[:title].present?
+      task_list = TasksQuery.new(params[:user_name]).by_user_name if params[:user_name].present?
       task_list = task_list.includes(:user)
     else
       task_list = Task.includes(:user)
