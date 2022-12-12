@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/request_helper_spec'
 
 RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
   describe 'GET#index' do # rubocop:disable Metrics/BlockLength
@@ -38,7 +37,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
       end
     end
     
-    context 'when have a filter' do
+    context 'when have a filter' do # rubocop:disable Metrics/BlockLength
       context 'by status applied' do
         let(:user) { create(:user) }
         let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
@@ -110,7 +109,7 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
           task3
           task4
   
-          get '/tasks', params: { status: 'done', title: 'le3'}
+          get '/tasks', params: { status: 'done', title: 'le3' }
         end
   
         it 'must return the tasks through the title' do
