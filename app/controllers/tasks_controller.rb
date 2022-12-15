@@ -29,6 +29,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    task = Task.find(params[:id])
+
+    render json: task,
+           serializer: Tasks::Show::TasksSerializer, status: :ok
+  end
+
   private
 
   def task_params

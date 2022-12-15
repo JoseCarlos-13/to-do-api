@@ -173,4 +173,25 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
       end
     end
   end
+
+  describe 'GET#show' do
+    context 'when a task is selected for to be readed' do
+      let!(:user) { create(:user) }
+      let!(:task) { create(:task, user_id: user.id) }
+
+      before do
+        task
+
+        get "/tasks/#{task.id}"
+      end
+
+      it 'must return the 200 status code' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'must return all task attributes' do
+        expect(json_body).to include(:id, :title, :status, :description)
+      end
+    end
+  end
 end
