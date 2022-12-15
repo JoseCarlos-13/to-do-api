@@ -2,25 +2,25 @@
 
 require 'rails_helper'
 
-RSpec.describe 'TasksQuery', type: :query_object do
-  context 'when have a filter' do
+RSpec.describe 'TasksQuery', type: :query_object do # rubocop:disable Metrics/BlockLength
+  context 'when have a filter' do # rubocop:disable Metrics/BlockLength
     context 'by status' do
       let(:user) { create(:user) }
-        let(:params) { { status: 'cancelled' } }
-        let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
-        let(:tasks2) { create_list(:task, 2, user_id: user.id, status: 'to_do') }
-  
-        before do
-          tasks1
-          tasks2
-  
-          @tasks = TasksQuery.new(params).call
-        end
-  
-        it 'must return the cancelled tasks' do
-          expect(@tasks[0][:status]).to eq('cancelled')
-          expect(@tasks[1][:status]).to eq('cancelled')
-        end
+      let(:params) { { status: 'cancelled' } }
+      let(:tasks1) { create_list(:task, 2, user_id: user.id, status: 'cancelled') }
+      let(:tasks2) { create_list(:task, 2, user_id: user.id, status: 'to_do') }
+
+      before do
+        tasks1
+        tasks2
+
+        @tasks = TasksQuery.new(params).call
+      end
+
+      it 'must return the cancelled tasks' do
+        expect(@tasks[0][:status]).to eq('cancelled')
+        expect(@tasks[1][:status]).to eq('cancelled')
+      end
     end
 
     context 'by title' do
