@@ -4,7 +4,7 @@
 class TasksController < ApplicationController
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
-  def index # rubocop:disable Metrics/BlockLength
+  def index
     task_list = TasksQuery.new(params).call
 
     task_list.includes(:user)
@@ -27,6 +27,13 @@ class TasksController < ApplicationController
     else
       render json: { errors: task.errors }, status: :unprocessable_entity
     end
+  end
+
+  def show
+    task = Task.find(params[:id])
+
+    render json: task,
+           serializer: Tasks::Show::TasksSerializer, status: :ok
   end
 
   private
