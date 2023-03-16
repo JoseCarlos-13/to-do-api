@@ -36,7 +36,7 @@ class TasksController < ApplicationController
            serializer: Tasks::Show::TasksSerializer, status: :ok
   end
 
-  def delete
+  def destroy
     task = Task.find(params[:id])
 
     task.destroy!

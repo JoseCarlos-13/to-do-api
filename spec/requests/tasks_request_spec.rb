@@ -194,4 +194,24 @@ RSpec.describe 'Tasks', type: :request do # rubocop:disable Metrics/BlockLength
       end
     end
   end
+
+  describe 'DELETE#destroy' do
+    let!(:user) { create(:user) }
+    let!(:task) { create(:task, user_id: user.id) }
+
+    before do
+      user
+      task
+
+      delete "/tasks/#{task.id}"
+    end
+
+    it 'must return 204 status code' do
+      expect(response).to have_http_status(:no_content)
+    end
+
+    it 'must to verify if the task was removed' do
+      expect(Task.count).to eq(0)
+    end
+  end
 end
