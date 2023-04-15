@@ -2856,3 +2856,75 @@ Processing by TasksController#index as */*
 Completed 200 OK in 34ms (Views: 14.0ms | ActiveRecord: 2.4ms | Allocations: 9323)
 
 
+Started GET "/tasks" for ::1 at 2023-04-15 02:05:43 -0300
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:05:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:05:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:05:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:05:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:13 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:06:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:08:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:08:20 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:09:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:09:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:09:46 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2023-04-15 02:09:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
